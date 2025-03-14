@@ -64,7 +64,7 @@ namespace Exception_Handling
             }
             catch (IndexOutOfRangeException ex)
             {
-                Console.WriteLine("Stack trace: " + ex.StackTrace);
+                Console.WriteLine("Stack trace: " + ex.Message);
             }
             Console.WriteLine("После catch-инструкции.");
         }
@@ -76,6 +76,7 @@ namespace Exception_Handling
             int[] numer = { 4, 8, 16, 32, 64, 128 };
             int[] denom = { 2, 0, 4, 4, 0, 8 };
             for (int i = 0; i < numer.Length; i++)
+            {
                 try
                 {
                     Console.WriteLine(numer[i] + " / " + denom[i] + " равно " + numer[i] / denom[i]);
@@ -84,6 +85,7 @@ namespace Exception_Handling
                 {
                     Console.WriteLine(ex.Message);
                 }
+            }
         }
 
         public static void ExcDemo5()
@@ -93,6 +95,7 @@ namespace Exception_Handling
             int[] numer = { 4, 8, 16, 32, 64, 128, 256, 512 };
             int[] denom = { 2, 0, 4, 4, 0, 8 };
             for (int i = 0; i < numer.Length; i++)
+            {
                 try
                 {
                     Console.WriteLine(numer[i] + " / " + denom[i] + " равно " + numer[i] / denom[i]);
@@ -110,6 +113,8 @@ namespace Exception_Handling
                 {
                     Console.WriteLine(ex.Message);
                 }
+
+            }
         }
 
         public static void ExcDemo6()
@@ -118,6 +123,7 @@ namespace Exception_Handling
             int[] numer = { 4, 8, 16, 32, 64, 128, 256, 512 };
             int[] denom = { 2, 0, 4, 4, 0, 8 };
             for (int i = 0; i < numer.Length; i++)
+            {
                 try
                 {
                     Console.WriteLine(numer[i] + " / " + denom[i] + " равно " + numer[i] / denom[i]);
@@ -126,6 +132,7 @@ namespace Exception_Handling
                 {
                     Console.WriteLine("Произошло некоторое исключение.");
                 }
+            }
         }
 
         public static void ExcDemo7()
