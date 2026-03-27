@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace Exception_Handling
 {
@@ -6,11 +7,11 @@ namespace Exception_Handling
     {
         public static void ExcDemo1()
         {
-            // Предоставим возможность обработать ошибку
-            // С#-системе динамического управления
+            // Надамо можливість обробити помилку
+            // системі динамічного керування C#
 
             int[] nums = new int[4];
-            Console.WriteLine("Перед генерированием исключения.");
+            Console.WriteLine("Перед генерацією винятку.");
             for (int i = 0; i < 10; i++)
             {
                 nums[i] = i;
@@ -23,41 +24,41 @@ namespace Exception_Handling
             int[] nums = new int[4];
             try
             {
-                Console.WriteLine("Перед генерированием исключения");
+                Console.WriteLine("Перед генерацією винятку");
                 for (int i = 0; i < 10; i++)
                 {
                     nums[i] = i;
                     Console.WriteLine("nums [ {0 ] : 1}", i, nums[i]);
                 }
-                Console.WriteLine("Этот текст не отображается");
+                Console.WriteLine("Цей текст не відображається");
             }
             catch (FormatException ex)
             {
-                Console.WriteLine("стандартное сообщение: ");
-                Console.WriteLine(ex); // Вызов ToString() 
+                Console.WriteLine("стандартне повідомлення: ");
+                Console.WriteLine(ex); // Виклик ToString() 
                 Console.WriteLine("Stack trace: " + ex.StackTrace);
                 Console.WriteLine("Message: " + ex.Message);
                 Console.WriteLine("TargetSite: " + ex.TargetSite);
             }
-            Console.WriteLine("После catch-инструкции.");
+            Console.WriteLine("Після інструкції catch.");
         }
 
         public static void GenException()
         {
             int[] nums = new int[4];
-            Console.WriteLine("Перед генерированием исключения.");
+            Console.WriteLine("Перед генерацією винятку.");
             for (int i = 0; i < 10; i++)
             {
                 nums[i] = i;
                 Console.WriteLine("nums[{0}]: {1}", i, nums[i]);
             }
-            Console.WriteLine("Этот текст не будет отображаться.");
+            Console.WriteLine("Цей текст не буде відображатися.");
         }
 
         public static void ExcDemo3()
         {
-            /*  Исключение может сгенерировать один метод, а
-                перехватить — другой. */
+            /*  Виняток може згенерувати один метод,
+                а перехопити — інший. */
             try
             {
                 GenException();
@@ -66,12 +67,12 @@ namespace Exception_Handling
             {
                 Console.WriteLine("Stack trace: " + ex.Message);
             }
-            Console.WriteLine("После catch-инструкции.");
+            Console.WriteLine("Після інструкції catch.");
         }
 
         public static void ExcDemo4()
         {
-            // Деление на нуль.
+            // Ділення на нуль.
 
             int[] numer = { 4, 8, 16, 32, 64, 128 };
             int[] denom = { 2, 0, 4, 4, 0, 8 };
@@ -79,7 +80,7 @@ namespace Exception_Handling
             {
                 try
                 {
-                    Console.WriteLine(numer[i] + " / " + denom[i] + " равно " + numer[i] / denom[i]);
+                    Console.WriteLine(numer[i] + " / " + denom[i] + " дорівнює " + numer[i] / denom[i]);
                 }
                 catch (DivideByZeroException ex)
                 {
@@ -90,7 +91,7 @@ namespace Exception_Handling
 
         public static void ExcDemo5()
         {
-            // Использование нескольких catch-инструкций
+            // Використання кількох інструкцій catch
 
             int[] numer = { 4, 8, 16, 32, 64, 128, 256, 512 };
             int[] denom = { 2, 0, 4, 4, 0, 8 };
@@ -98,7 +99,7 @@ namespace Exception_Handling
             {
                 try
                 {
-                    Console.WriteLine(numer[i] + " / " + denom[i] + " равно " + numer[i] / denom[i]);
+                    Console.WriteLine(numer[i] + " / " + denom[i] + " дорівнює " + numer[i] / denom[i]);
                     Console.WriteLine("{0", numer[i]);
                 }
                 catch (DivideByZeroException ex)
@@ -119,25 +120,25 @@ namespace Exception_Handling
 
         public static void ExcDemo6()
         {
-            // Перехват всех исключений.
+            // Перехоплення всіх винятків.
             int[] numer = { 4, 8, 16, 32, 64, 128, 256, 512 };
             int[] denom = { 2, 0, 4, 4, 0, 8 };
             for (int i = 0; i < numer.Length; i++)
             {
                 try
                 {
-                    Console.WriteLine(numer[i] + " / " + denom[i] + " равно " + numer[i] / denom[i]);
+                    Console.WriteLine(numer[i] + " / " + denom[i] + " дорівнює " + numer[i] / denom[i]);
                 }
                 catch
                 {
-                    Console.WriteLine("Произошло некоторое исключение.");
+                    Console.WriteLine("Сталося певне виключення.");
                 }
             }
         }
 
         public static void ExcDemo7()
         {
-            // Использование вложенного try-блока
+            // Використання вкладеного try-блоку
             int[] numer = { 4, 8, 16, 32, 64, 128, 256, 512 };
             int[] denom = { 2, 0, 4, 4, 0, 8 };
             try
@@ -146,7 +147,7 @@ namespace Exception_Handling
                 {
                     try
                     {
-                        Console.WriteLine(numer[i] + " / " + denom[i] + " равно " + numer[i] / denom[i]);
+                        Console.WriteLine(numer[i] + " / " + denom[i] + " дорівнює " + numer[i] / denom[i]);
                     }
                     catch (DivideByZeroException ex)
                     {
@@ -162,29 +163,29 @@ namespace Exception_Handling
 
         public static void ExcDemo8()
         {
-            // Генерирование исключения вручную
+            // Генерування винятку вручну
             try
             {
-                Console.WriteLine("До генерирования исключения.");
-                throw new Exception("Генерирование исключения вручную");
+                Console.WriteLine("До генерації винятку.");
+                throw new Exception("Генерування винятку вручну");
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            Console.WriteLine("После try/catch-блока.");
+            Console.WriteLine("Після блоку try/catch.");
         }
 
         public static void ReGenException()
         {
-            // Повторное генерирование исключения
+            // Повторне генерування винятку
             int[] numer = { 4, 8, 16, 32, 64, 128, 256, 512 };
             int[] denom = { 2, 0, 4, 4, 0, 8 };
             for (int i = 0; i < numer.Length; i++)
             {
                 try
                 {
-                    Console.WriteLine(numer[i] + " / " + denom[i] + " равно " + numer[i] / denom[i]);
+                    Console.WriteLine(numer[i] + " / " + denom[i] + " дорівнює " + numer[i] / denom[i]);
                 }
                 catch (DivideByZeroException ex)
                 {
@@ -193,7 +194,7 @@ namespace Exception_Handling
                 catch (IndexOutOfRangeException ex)
                 {
                     Console.WriteLine(ex.Message);
-                    throw; // Генерируем исключение повторно
+                    throw; // Генеруємо виняток повторно
                 }
             }
         }
@@ -206,31 +207,31 @@ namespace Exception_Handling
             }
             catch (IndexOutOfRangeException ex)
             {
-                // Перехватываем повторно сгенерированное исключение
+                // Перехоплюємо повторно згенерований виняток
                 Console.WriteLine(ex.Message);
             }
         }
 
         public static void UseFinally(int what)
         {
-            // Использование блока finally.
+            // Використання блоку finally.
             int t;
             int[] nums = new int[2];
-            Console.WriteLine("Получаем " + what);
+            Console.WriteLine("Отримуємо " + what);
             try
             {
                 switch (what)
                 {
                     case 0:
-                        t = 10 / what; // Генерируем ошибку деления на нуль.
+                        t = 10 / what; // Генеруємо помилку ділення на нуль.
                         break;
                     case 1:
-                        nums[4] = 4; // Генерируем ошибку индексирования массива.
+                        nums[4] = 4; // Генеруємо помилку індексування масиву.
                         break;
                     case 2:
-                        throw new StackOverflowException(); // Генерируем ошибку переполнения стека.
+                        throw new StackOverflowException(); // Генеруємо помилку переповнення стека.
                     case 3:
-                        return; // Возврат из try-блока.
+                        return; // Повернення з блоку try.
                 }
             }
             catch (DivideByZeroException ex)
@@ -250,7 +251,7 @@ namespace Exception_Handling
             }
             finally
             {
-                Console.WriteLine("По окончании try-блока.");
+                Console.WriteLine("Після завершення блоку try.");
             }
 
         }
@@ -275,10 +276,10 @@ namespace Exception_Handling
             try
             {
                 result = unchecked((byte)(a * b));
-                Console.WriteLine("Непроверенный на переполнение результат: " + result);
+                Console.WriteLine("Неперевірений на переповнення результат: " + result);
 
                 result = checked((byte)(a * b));
-                Console.WriteLine("Проверенный на переполнение результат: " + result);
+                Console.WriteLine("Перевірений на переповнення результат: " + result);
             }
             catch (OverflowException exc)
             {
@@ -292,12 +293,12 @@ namespace Exception_Handling
                     a = 127;
                     b = 127;
                     result = (byte)(a * b);
-                    Console.WriteLine("Непроверенный на переполнение результат: " + result);
+                    Console.WriteLine("Неперевірений на переповнення результат: " + result);
 
                     a = 125;
                     b = 5;
                     result = (byte)(a * b);
-                    Console.WriteLine("Непроверенный на переполнение результат: " + result);
+                    Console.WriteLine("Неперевірений на переповнення результат: " + result);
                 }
 
                 checked
@@ -305,12 +306,12 @@ namespace Exception_Handling
                     a = 2;
                     b = 7;
                     result = (byte)(a * b);
-                    Console.WriteLine("Проверенный на переполнение результат: " + result);
+                    Console.WriteLine("Перевірений на переповнення результат: " + result);
 
                     a = 127;
                     b = 127;
                     result = (byte)(a * b);
-                    Console.WriteLine("Проверенный на переполнение результат: " + result);
+                    Console.WriteLine("Перевірений на переповнення результат: " + result);
                 }
             }
             catch (OverflowException exc)
@@ -321,15 +322,15 @@ namespace Exception_Handling
 
         static void ExceptionFilters()
         {
-            // Фильтры исключений позволяют обрабатывать исключения в зависимости от определенных условий.
+            // Фільтри винятків дозволяють обробляти винятки залежно від певних умов.
 
             int[] numer = { 4, 8, 16, 32, 64, 128, 256, 512 };
             int[] denom = { 2, 0, 4, 4, 0, 8 };
             for (int i = 0; i < numer.Length; i++)
                 try
                 {
-                    Console.WriteLine(numer[i] + " / " + denom[i] + " равно " + numer[i] / denom[i]);
-                    throw new Exception("Исключение при работе метода!");
+                    Console.WriteLine(numer[i] + " / " + denom[i] + " дорівнює " + numer[i] / denom[i]);
+                    throw new Exception("Виняток під час роботи методу!");
                 }
                 catch (Exception ex) when (denom[i] == 0)
                 {
@@ -347,6 +348,8 @@ namespace Exception_Handling
 
         static void Main(string[] args)
         {
+            Console.OutputEncoding = Encoding.UTF8;
+            Console.InputEncoding = Encoding.UTF8;
             //ExcDemo1();
             ExcDemo2();
             ExcDemo3();
